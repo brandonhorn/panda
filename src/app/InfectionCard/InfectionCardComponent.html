@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="header">
+        <div *ngIf=deleteHandler
+            class="button-close"
+            title="Remove from board"
+            (click)="deleteHandler()">
+            Remove
+        </div>
+        <div *ngIf=selectHandler
+            class="button-apply"
+            title="Move to discard"
+            (click)="handleSelect()">
+            Drawn
+        </div>
+    </div>
+    <div class="label">{{model.name}}</div>
+</div>

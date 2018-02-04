@@ -1,0 +1,28 @@
+<div class="deck-section">
+    <div class="deck-list">
+        <infection-card 
+            *ngFor="let card of decks[deckIndex]"
+            [model]="card"
+            [selectHandler]="getSelectCallback(card)">
+        </infection-card>
+    </div>
+    <div class="buttons">
+        <div class="deck-button"
+            (click)="previousSegment()">
+            Previous
+        </div>
+        <div class="deck-button"
+            (click)="nextSegment()">
+            Next
+        </div>
+    </div>
+</div>
+<h2>Discards</h2>
+<div class="discard-list">
+    <infection-card
+        *ngFor="let card of discardDeck"
+        [model]="card"
+        [deleteHandler]="getDeleteCallback(card)">
+    </infection-card>
+</div>
+<div (click)="shuffleDiscardDeck()">SHUFFLE</div>
