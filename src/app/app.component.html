@@ -1,2 +1,10 @@
 <div class="top-title">Disease Control Center</div>
-<infection-deck></infection-deck>
+<epidemic-tracker
+  [epidemicEvent]="epidemicEvent">
+</epidemic-tracker>
+<div class="infection-decks">
+    <h2>Infection Deck</h2>
+    <infection-deck
+      [epidemicEvent]="epidemicEvent">
+    </infection-deck>
+</div>

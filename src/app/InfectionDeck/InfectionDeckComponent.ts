@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, Input, EventEmitter, OnInit } from '@angular/core';
 import { IInfectionCard } from './interfaces';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'infection-deck',
   templateUrl: './InfectionDeckComponent.html',
   styleUrls: ['./InfectionDeckComponent.css']
 })
-export class InfectionDeckComponent {
+export class InfectionDeckComponent implements OnInit {
+    @Input() epidemicEvent: EventEmitter<void>;
+
     private decks: IInfectionCard[][] = [];
     private deckIndex: number;
 
     public currentDeck: IInfectionCard[];
     public discardDeck: IInfectionCard[] = [];
+    public modalVisible: boolean = false;
+    public selectedCardIndex = -1;
 
-    constructor() {
+    constructor(private confirmationService: ConfirmationService) {
         this.discardDeck = [ 
             {name: 'New York', color: 'blue'},
             {name: 'Washington', color: 'blue'},
@@ -25,9 +30,37 @@ export class InfectionDeckComponent {
             {name: 'Tripoli', color: 'black'},
             {name: 'Istanbul', color: 'black'},
         ];
-        this.shuffleDiscardDeck();
+        this.stackDiscardDeck();
     }
 
+    public ngOnInit(): void {
+        this.epidemicEvent.subscribe(() => {
+            this.modalVisible = true;
+        });
+    }
+
+    public updateDiscardAndTop(): void {
+        let lastDeck = this.decks[this.decks.length - 1];
+        let card = lastDeck[this.selectedCardIndex];
+        this.discardDeck.push(card);
+        lastDeck = lastDeck.filter(c => c !== card);
+        this.stackDiscardDeck();
+        this.modalVisible = false;
+        this.selectedCardIndex = -1;
+    }
+
+    public stackDiscardDeck(): void {
+        this.discardDeck.sort((a, b) => {
+            return a.name === b.name ? 0 :
+                a.name < b.name ? 1 : -1;
+        })
+        this.decks.unshift(this.discardDeck);
+        this.discardDeck = [];
+        this.deckIndex = 0;
+        this.currentDeck = this.decks[this.deckIndex];
+    }
+
+    // do we need shuffle on the computer?
     public shuffleDiscardDeck(): void {
         let l = this.discardDeck.length;
         let i: number;
@@ -64,7 +97,15 @@ export class InfectionDeckComponent {
 
     public getDeleteCallback(card: IInfectionCard): () => void {
         return () => {
-            this.discardDeck = this.discardDeck.filter(c => c !== card);
+            this.confirmationService.confirm({
+                message: 'Are you sure that you want to remove card from board?',
+                header: 'Confirmation',
+                icon: 'fa fa-question-circle',
+                accept: () => {
+                    this.discardDeck = this.discardDeck.filter(c => c !== card);
+                },
+                reject: () => {}
+            });
         };
     }
 

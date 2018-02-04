@@ -1,3 +1,20 @@
+<p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+
+<p-dialog header="Epidemic!" [(visible)]="modalVisible" modal="modal" width="80%" height="80%" [responsive]="true">
+    <div class="deck-list">
+            <infection-card 
+                *ngFor="let card of decks[decks.length - 1]; let i = index"
+                [model]="card"
+                (click)="selectedCardIndex = i"
+                [ngClass]="selectedCardIndex === i ? 'selected' : ''">
+            </infection-card>
+        </div>
+    <p-footer>
+        <button type="button" pButton icon="fa-check" (click)="updateDiscardAndTop()" label="Accept"></button>
+        <button type="button" pButton icon="fa-close" (click)="modalVisible=false" label="Cancel"></button>
+    </p-footer>
+</p-dialog>
+
 <div class="deck-section">
     <div class="deck-list">
         <infection-card 
@@ -25,4 +42,3 @@
         [deleteHandler]="getDeleteCallback(card)">
     </infection-card>
 </div>
-<div (click)="shuffleDiscardDeck()">SHUFFLE</div>

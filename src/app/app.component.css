@@ -2,5 +2,10 @@
     font-size: 32px;
     width: 100%;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
+}
+
+.infection-decks {
+    border: 2px solid rgb(56, 55, 55);
+    padding: 10px;
 }
