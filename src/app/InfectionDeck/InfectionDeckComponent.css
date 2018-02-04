@@ -9,3 +9,21 @@
 infection-card.selected {
     background-color: yellowgreen;
 }
+
+p-dialog {
+    width: 80%;
+    height: 80%;
+}
+
+.buttons {
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+}
+
+.deck-button {
+    padding: 2px 4px;
+    cursor: pointer;
+    border: 2px solid rgb(80, 80, 80);
+    background-color: rgb(163, 163, 163);
+}

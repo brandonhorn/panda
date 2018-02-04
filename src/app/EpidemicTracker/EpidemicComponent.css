@@ -1,0 +1,12 @@
+.epidemic-button {
+    background-color: yellowgreen;
+    border: solid 2px darkgreen;
+    border-radius: 5px;
+    padding: 2px 4px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.wrapper {
+    padding: 10px;
+}
