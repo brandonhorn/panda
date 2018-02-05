@@ -43,7 +43,7 @@ export class InfectionDeckComponent implements OnInit {
         let lastDeck = this.decks[this.decks.length - 1];
         let card = lastDeck[this.selectedCardIndex];
         this.discardDeck.push(card);
-        lastDeck = lastDeck.filter(c => c !== card);
+        this.decks[this.decks.length - 1] = lastDeck.filter(c => c !== card);
         this.stackDiscardDeck();
         this.modalVisible = false;
         this.selectedCardIndex = -1;
