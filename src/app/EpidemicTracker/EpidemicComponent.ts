@@ -1,19 +1,12 @@
 import { Component, Input, EventEmitter } from '@angular/core';
 import { IInfectionCard } from '../InfectionDeck/interfaces';
+import { IPlayerCard, EPIDEMIC_NAME } from '../Decks/Interfaces';
+import { DeckService } from '../DeckService';
 
-export interface IPlayerCard {
-    name: string;
-    color: string;
-}
 
 interface IEpiMiniStack {
     hasEpidemic: boolean;
     count: number;
-}
-
-const EpiCardSingleton: IPlayerCard = {
-    name: 'epidemic',
-    color: 'awful'
 }
 
 @Component({
@@ -30,12 +23,14 @@ export class EpidemicComponent {
     public stacks: IEpiMiniStack[] = [];
     public modalVisible: boolean = false;
 
-    constructor() {
-        
+    constructor(private _deckService: DeckService) {
+        this._deckService.playerDeck.subscribe(deck => {
+            
+        });
     }
 
     public drawCard(event: {value: IPlayerCard}): void {
-        if (event.value === EpiCardSingleton) {
+        if (event.value.name === EPIDEMIC_NAME) {
             this.stacks[0].hasEpidemic = true;
             if (this.epidemicEvent) {
                 this.epidemicEvent.emit();
