@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IInfectionCard } from '../InfectionDeck/interfaces';
+import { IInfectionCard } from '../Decks/Interfaces';
 
 @Component({
   selector: 'infection-card',
@@ -10,9 +10,4 @@ export class InfectionCardComponent {
     @Input() model: IInfectionCard;
     @Input() selectHandler: () => void;
     @Input() deleteHandler: () => void;
-
-
-    handleSelect(): void {
-        this.selectHandler();
-    }
 }

@@ -1,6 +1,24 @@
+<p-dialog header="Player Card" [(visible)]="modalVisible" modal="modal" width="80%" height="80%" [responsive]="true">
+    <div class="deck-list">
+        <player-card 
+            *ngFor="let card of playerDeck"
+            [model]="card"
+            (click)="selectedCard = card"
+            [ngClass]="selectedCard === card ? 'selected' : ''">
+        </player-card>
+    </div>
+    <p-footer>
+        <button type="button" pButton icon="fa-check" (click)="drawCard()" label="Accept"></button>
+        <button type="button" pButton icon="fa-close" (click)="modalVisible=false" label="Cancel"></button>
+    </p-footer>
+</p-dialog>
+
 <div class="wrapper">
-    <div class="epidemic-button"
-        (click)="epidemic()">
-        Epidemic!
+    <div>
+        Probability of epidemic in next draws: {{epidemicProbability}}
+    </div>
+    <div class="draw-button"
+        (click)="modalVisible=true">
+        Draw Player Card
     </div>
 </div>

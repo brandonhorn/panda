@@ -7,6 +7,22 @@
     cursor: pointer;
 }
 
+:host /deep/ .ui-widget-header {
+    background-color: rgb(15, 94, 240);
+}
+
 .wrapper {
     padding: 10px;
+}
+
+.deck-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: dimgrey;
+}
+
+player-card.selected {
+    background-color: rgb(15, 173, 221);
 }

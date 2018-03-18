@@ -1,5 +1,5 @@
 import { Component, Input, EventEmitter, OnInit } from '@angular/core';
-import { IInfectionCard } from './interfaces';
+import { IInfectionCard } from '../Decks/Interfaces';
 import { ConfirmationService } from 'primeng/api';
 
 @Component({

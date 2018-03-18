@@ -5,6 +5,11 @@
     justify-content: space-evenly;
     background-color: dimgrey;
 }
+    
+:host /deep/ .ui-widget-header {
+    background-color: forestgreen;
+}
+
 
 infection-card.selected {
     background-color: yellowgreen;

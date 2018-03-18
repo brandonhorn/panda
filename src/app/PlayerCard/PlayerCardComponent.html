@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="label">{{model.name}}</div>
+    <div class="count-bubble"
+        *ngIf="model.count && model.count !== 1">{{model.count}}</div>
+    <div class="asterisk" 
+        *ngIf="model.powerups"
+        title="model.powerups">
+    </div>
+</div>

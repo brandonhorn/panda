@@ -1,6 +1,6 @@
 <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
 
-<p-dialog header="Epidemic!" [(visible)]="modalVisible" modal="modal" width="80%" height="80%" [responsive]="true">
+<p-dialog header="Epidemic!   Select infected city:" [(visible)]="modalVisible" modal="modal" width="80%" height="80%" [responsive]="true">
     <div class="deck-list">
             <infection-card 
                 *ngFor="let card of decks[decks.length - 1]; let i = index"

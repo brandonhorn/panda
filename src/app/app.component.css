@@ -9,3 +9,11 @@
     border: 2px solid rgb(56, 55, 55);
     padding: 10px;
 }
+
+:host /deep/ .ui-widget {
+    font-family: 'Gunplay';
+}
+
+:host /deep/ .ui-widget-header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

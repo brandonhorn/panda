@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { InfectionDeckComponent } from './InfectionDeck/InfectionDeckComponent';
 import { InfectionCardComponent } from './InfectionCard/InfectionCardComponent';
 import { EpidemicComponent } from './EpidemicTracker/EpidemicComponent';
+import { DeckService } from './DeckService';
+import { PlayerCardComponent } from './PlayerCard/PlayerCardComponent';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { EpidemicComponent } from './EpidemicTracker/EpidemicComponent';
     AppComponent,
     InfectionDeckComponent,
     InfectionCardComponent,
-    EpidemicComponent
+    EpidemicComponent,
+    PlayerCardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { EpidemicComponent } from './EpidemicTracker/EpidemicComponent';
     DialogModule
   ],
   providers: [ 
-    ConfirmationService
+    ConfirmationService,
+    DeckService
   ],
   bootstrap: [AppComponent]
 })
