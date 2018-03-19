@@ -10,4 +10,5 @@ export class InfectionCardComponent {
     @Input() model: IInfectionCard;
     @Input() selectHandler: () => void;
     @Input() deleteHandler: () => void;
+    @Input() undoSelectHandler: () => void;
 }

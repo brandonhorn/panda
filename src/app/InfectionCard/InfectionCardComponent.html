@@ -12,6 +12,12 @@
             (click)="selectHandler()">
             Drawn
         </div>
+        <div *ngIf=undoSelectHandler
+            class="button-apply"
+            title="Move back to deck"
+            (click)="undoSelectHandler()">
+            Undo draw
+        </div>
     </div>
     <div class="label">{{model.name}}</div>
 </div>

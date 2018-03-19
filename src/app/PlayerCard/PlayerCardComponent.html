@@ -5,6 +5,9 @@
         *ngIf="model.count && model.count !== 1">{{model.count}}</div>
     <div class="asterisk" 
         *ngIf="model.powerups"
-        title="model.powerups">
+        title="{{model.powerups.join(', ')}}">
+        <ul>
+            <li *ngFor="let powerup of model.powerups">{{powerup}}</li>
+        </ul>
     </div>
 </div>

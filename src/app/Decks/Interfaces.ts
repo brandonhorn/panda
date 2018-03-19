@@ -12,15 +12,15 @@ export interface IInfectionCard {
     color: string;
 }
 
-export const colors = {
+export const flavors = {
     blue: 'blue',
     red: 'red',
     yellow: 'yellow',
     black: 'black',
-    infection: 'green',
-    event: 'cyan'
+    infection: 'infection',
+    event: 'event'
 }
 
 export const s2colors = {
-    supply: 'grey'
+    supply: 'supply'
 }

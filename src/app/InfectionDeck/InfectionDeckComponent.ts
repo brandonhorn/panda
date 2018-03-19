@@ -115,4 +115,11 @@ export class InfectionDeckComponent implements OnInit {
             this.currentDeck = this.decks[this.deckIndex];
         };
     }
+
+    public undoSelect(card: IInfectionCard): () => void {
+        return () => {
+            this.discardDeck = this.discardDeck.filter(c => c !== card);
+            this.decks[0].push(card);
+        }
+    }
 }

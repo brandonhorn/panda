@@ -4,7 +4,7 @@ import { IPlayerCard } from '../Decks/Interfaces';
 @Component({
     selector: 'player-card',
     templateUrl: './PlayerCardComponent.html',
-    styleUrls: ['./PlayerCardComponent.css']
+    styleUrls: ['./PlayerCardComponent.less']
 })
 export class PlayerCardComponent {
     @Input() model: IPlayerCard;

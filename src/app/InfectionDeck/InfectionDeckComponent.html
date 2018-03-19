@@ -39,6 +39,7 @@
     <infection-card
         *ngFor="let card of discardDeck"
         [model]="card"
-        [deleteHandler]="getDeleteCallback(card)">
+        [deleteHandler]="getDeleteCallback(card)"
+        [undoSelectHandler]="undoSelect(card)">
     </infection-card>
 </div>
