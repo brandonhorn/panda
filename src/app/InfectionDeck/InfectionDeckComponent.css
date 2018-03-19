@@ -10,9 +10,16 @@
     background-color: forestgreen;
 }
 
+infection-card {
+    cursor: pointer;
+}
+
+infection-card:hover {
+    background-color: rgba(240, 15, 184, 0.288);
+}
 
 infection-card.selected {
-    background-color: yellowgreen;
+    background-color: rgb(247, 36, 201);
 }
 
 p-dialog {

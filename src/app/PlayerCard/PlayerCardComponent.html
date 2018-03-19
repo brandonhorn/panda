@@ -1,4 +1,5 @@
-<div class="card">
+<div class="card"
+    [ngClass]="model.color">
     <div class="label">{{model.name}}</div>
     <div class="count-bubble"
         *ngIf="model.count && model.count !== 1">{{model.count}}</div>

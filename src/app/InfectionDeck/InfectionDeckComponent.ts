@@ -1,6 +1,7 @@
 import { Component, Input, EventEmitter, OnInit } from '@angular/core';
 import { IInfectionCard } from '../Decks/Interfaces';
 import { ConfirmationService } from 'primeng/api';
+import { DeckService } from '../DeckService';
 
 @Component({
   selector: 'infection-deck',
@@ -18,18 +19,12 @@ export class InfectionDeckComponent implements OnInit {
     public modalVisible: boolean = false;
     public selectedCardIndex = -1;
 
-    constructor(private confirmationService: ConfirmationService) {
-        this.discardDeck = [ 
-            {name: 'New York', color: 'blue'},
-            {name: 'Washington', color: 'blue'},
-            {name: 'London', color: 'blue'},
-            {name: 'Jacksonville', color: 'yellow'},
-            {name: 'Lagos', color: 'yellow'},
-            {name: 'Sao Paolo', color: 'yellow'},
-            {name: 'Cairo', color: 'black'},
-            {name: 'Tripoli', color: 'black'},
-            {name: 'Istanbul', color: 'black'},
-        ];
+    constructor(private confirmationService: ConfirmationService,
+        private _deckService: DeckService
+    ) {
+        this._deckService.infectionDeck.subscribe(deck => {
+            this.discardDeck = deck;
+        });
         this.stackDiscardDeck();
     }
 
