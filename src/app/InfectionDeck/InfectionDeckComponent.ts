@@ -1,18 +1,21 @@
-import { Component, Input, EventEmitter, OnInit } from '@angular/core';
-import { IInfectionCard } from '../Decks/Interfaces';
+import { Component, Input, EventEmitter, OnInit, OnDestroy } from '@angular/core';
+import { IInfectionCard, IDecks } from '../Decks/Interfaces';
 import { ConfirmationService } from 'primeng/api';
 import { DeckService } from '../DeckService';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'infection-deck',
   templateUrl: './InfectionDeckComponent.html',
   styleUrls: ['./InfectionDeckComponent.css']
 })
-export class InfectionDeckComponent implements OnInit {
+export class InfectionDeckComponent implements OnInit, OnDestroy {
     @Input() epidemicEvent: EventEmitter<void>;
+    @Input() deckChangedEvent: EventEmitter<IDecks>;
 
     private decks: IInfectionCard[][] = [];
     private deckIndex: number;
+    private subscriptions: Subscription[] = [];
 
     public currentDeck: IInfectionCard[];
     public discardDeck: IInfectionCard[] = [];
@@ -22,16 +25,16 @@ export class InfectionDeckComponent implements OnInit {
     constructor(private confirmationService: ConfirmationService,
         private _deckService: DeckService
     ) {
-        this._deckService.infectionDeck.subscribe(deck => {
+        this.subscriptions.push(this._deckService.infectionDeck.subscribe(deck => {
             this.discardDeck = deck;
-        });
-        this.stackDiscardDeck();
+            this.stackDiscardDeck();
+        }));
     }
 
     public ngOnInit(): void {
-        this.epidemicEvent.subscribe(() => {
+        this.subscriptions.push(this.epidemicEvent.subscribe(() => {
             this.modalVisible = true;
-        });
+        }));
     }
 
     public updateDiscardAndTop(): void {
@@ -121,5 +124,9 @@ export class InfectionDeckComponent implements OnInit {
             this.discardDeck = this.discardDeck.filter(c => c !== card);
             this.decks[0].push(card);
         }
+    }
+
+    public ngOnDestroy(): void {
+        this.subscriptions.forEach(sub => sub.unsubscribe);
     }
 }

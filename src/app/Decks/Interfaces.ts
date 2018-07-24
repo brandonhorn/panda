@@ -1,5 +1,10 @@
 export const EPIDEMIC_NAME: string = 'Epidemic';
 
+export interface IDecks {
+    playerDeck: IPlayerCard[];
+    infectionDeck: IInfectionCard[];
+}
+
 export interface IPlayerCard {
     name: string;
     color: string;

@@ -1,4 +1,5 @@
 import { Component, EventEmitter } from '@angular/core';
+import { IDecks } from './Decks/Interfaces';
 
 @Component({
   selector: 'app-root',
