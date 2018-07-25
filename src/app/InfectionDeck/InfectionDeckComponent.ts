@@ -11,9 +11,8 @@ import { Subscription } from 'rxjs';
 })
 export class InfectionDeckComponent implements OnInit, OnDestroy {
     @Input() epidemicEvent: EventEmitter<void>;
-    @Input() deckChangedEvent: EventEmitter<IDecks>;
 
-    private decks: IInfectionCard[][] = [];
+    private decks: IInfectionCard[][];
     private deckIndex: number;
     private subscriptions: Subscription[] = [];
 
@@ -26,7 +25,8 @@ export class InfectionDeckComponent implements OnInit, OnDestroy {
         private _deckService: DeckService
     ) {
         this.subscriptions.push(this._deckService.infectionDeck.subscribe(deck => {
-            this.discardDeck = deck;
+            this.discardDeck = deck.slice();
+            this.decks = [];
             this.stackDiscardDeck();
         }));
     }

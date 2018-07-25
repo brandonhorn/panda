@@ -31,7 +31,8 @@ export class EpidemicComponent {
             this.playerDeck = deck.slice();
 
             this.deckLength = deck.length;
-            this.epidemicCount = deck.find(card => card.name === EPIDEMIC_NAME).count;
+            let card = deck.find(card => card.name === EPIDEMIC_NAME);
+            this.epidemicCount = card ? card.count : 0;
             let minDiv = Math.floor(this.deckLength / this.epidemicCount);
             let remainder = this.epidemicCount - (this.deckLength - (minDiv * this.epidemicCount));
             for (let i = 0; i < this.epidemicCount; i++) {

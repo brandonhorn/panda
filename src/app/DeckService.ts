@@ -21,11 +21,11 @@ export class DeckService {
     }
 
     public get playerDeck(): Observable<IPlayerCard[]> {
-        return this.selectedDecks.map(d => d.playerDeck);
+        return this._selectedDecks.map(d => d.playerDeck);
     }
 
     public get infectionDeck(): Observable<IInfectionCard[]> {
-        return this.selectedDecks.map(d => d.infectionDeck);
+        return this._selectedDecks.map(d => d.infectionDeck);
     }
 
     public setDecks(decks: IDecks): void {
