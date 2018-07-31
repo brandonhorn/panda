@@ -1,0 +1,300 @@
+{
+    "playerDeck": [
+        {
+            "name": "Produce Supplies",
+            "color": "supply",
+            "count": 8
+        },
+        {
+            "name": "Cairo",
+            "color": "black",
+            "count": 4
+        },
+        {
+            "name": "Istanbul",
+            "color": "black",
+            "count": 4
+        },
+        {
+            "name": "Tripoli",
+            "color": "black",
+            "count": 3
+        },
+        {
+            "name": "Tripoli",
+            "color": "black",
+            "count": 1,
+            "powerups": ["Foundations: counts as 2 for supply center"]
+        },
+        {
+            "name": "New York",
+            "color": "blue",
+            "count": 4
+        },
+        {
+            "name": "Chicago",
+            "color": "blue",
+            "count": 2
+        },
+        {
+            "name": "Washington",
+            "color": "blue",
+            "count": 4
+        },
+        {
+            "name": "London",
+            "color": "blue",
+            "count": 4
+        },
+        {
+            "name": "Denver",
+            "color": "blue",
+            "count": 1,
+            "powerups": ["Companion: Establish supply line with 1 fewer cube"]
+        },
+        {
+            "name": "Denver",
+            "color": "blue",
+            "count": 1
+        },
+        {
+            "name": "Atlanta",
+            "color": "blue",
+            "count": 1
+        },
+        {
+            "name": "Jacksonville",
+            "color": "yellow",
+            "count": 3
+        },
+        {
+            "name": "Jacksonville",
+            "color": "yellow",
+            "count": 1,
+            "powerups": ["Foundations: counts as 2 for supply center"]
+        },
+        {
+            "name": "Lagos",
+            "color": "yellow",
+            "count": 4
+        },
+        {
+            "name": "Mexico City",
+            "color": "yellow",
+            "count": 1
+        },
+        {
+            "name": "Sao Paulo",
+            "color": "yellow",
+            "count": 4
+        },
+        {
+            "name": "Epidemic",
+            "color": "infection",
+            "count": 6
+        },
+        {
+            "name": "Resilient Population",
+            "color": "event",
+            "powerups": [
+                "Move 1 or 2 copies of a city in the infection discard pile out of the game"
+            ]
+        },
+        {
+            "name": "Hidden stockpile",
+            "color": "event",
+            "powerups": [
+                "take 6 cubes from the reserve to a location with a player"
+            ]
+        },
+        {
+            "name": "One Quiet Night",
+            "color": "event",
+            "powerups": [
+                "The next player to begin the infect phase of their turn may skip that phase entirely"
+            ]
+        },
+        {
+            "name": "Extended Time",
+            "color": "event",
+            "powerups": [
+                "current player gains 3 actions"
+            ]
+        },
+        {
+            "name": "Forecast",
+            "color": "event",
+            "powerups": [
+                "Examine the top 8 cards of the infection deck and rearrange them"
+            ]
+        },
+        {
+            "name": "It worked the first time",
+            "color": "event",
+            "powerups": [
+                "take rationed event card from discard and play it immediately"
+            ]
+        },
+        {
+            "name": "Drastic Measures",
+            "color": "event",
+            "powerups": [
+                "remove 2 plague cubes from the grid"
+            ]
+        },
+        {
+            "name": "Airlift",
+            "color": "event",
+            "powerups": [
+                "move 1 pawn to any location"
+            ]
+        },
+        {
+            "name": "Data transfre",
+            "color": "event",
+            "powerups": [
+                "two players can swap one player card"
+            ]
+        },
+        {
+            "name": "Dispersal",
+            "color": "event",
+            "powerups": [
+                "move 3 supply cubes from 1 haven to location"
+            ]
+        },
+        {
+            "name": "Team Bravo",
+            "color": "event",
+            "powerups": [
+                "take 2 supply cubes from stockpile into location"
+            ]
+        }
+    ],
+    "infectionDeck": [
+        {
+            "name": "Cairo",
+            "color": "black"
+        },
+        {
+            "name": "Cairo",
+            "color": "black"
+        },
+        {
+            "name": "Cairo",
+            "color": "black"
+        },
+        {
+            "name": "New York",
+            "color": "blue"
+        },
+        {
+            "name": "New York",
+            "color": "blue"
+        },
+        {
+            "name": "New York",
+            "color": "blue"
+        },
+        {
+            "name": "Lagos",
+            "color": "yellow"
+        },
+        {
+            "name": "Lagos",
+            "color": "yellow"
+        },
+        {
+            "name": "Lagos",
+            "color": "yellow"
+        },
+        {
+            "name": "Sao Paulo",
+            "color": "yellow"
+        },
+        {
+            "name": "Sao Paulo",
+            "color": "yellow"
+        },
+        {
+            "name": "Sao Paulo",
+            "color": "yellow"
+        },
+        {
+            "name": "London",
+            "color": "blue"
+        },
+        {
+            "name": "London",
+            "color": "blue"
+        },
+        {
+            "name": "London",
+            "color": "blue"
+        },
+        {
+            "name": "Istanbul",
+            "color": "black"
+        },
+        {
+            "name": "Istanbul",
+            "color": "black"
+        },
+        {
+            "name": "Istanbul",
+            "color": "black"
+        },
+        {
+            "name": "Atlanta",
+            "color": "blue"
+        },
+        {
+            "name": "Denver",
+            "color": "blue"
+        },
+        {
+            "name": "Tripoli",
+            "color": "black"
+        },
+        {
+            "name": "Tripoli",
+            "color": "black"
+        },
+        {
+            "name": "Tripoli",
+            "color": "black"
+        },
+        {
+            "name": "Washington",
+            "color": "blue"
+        },
+        {
+            "name": "Washington",
+            "color": "blue"
+        },
+        {
+            "name": "Washington",
+            "color": "blue"
+        },
+        {
+            "name": "Chicago",
+            "color": "blue"
+        },
+        {
+            "name": "Denver",
+            "color": "blue"
+        },
+        {
+            "name": "Chicago",
+            "color": "blue"
+        },
+        {
+            "name": "Jacksonville",
+            "color": "yellow"
+        },
+        {
+            "name": "Mexico City",
+            "color": "yellow"
+        }
+    ]
+}
