@@ -9,6 +9,11 @@ interface IEpiMiniStack {
     count: number;
 }
 
+interface IColorSummary {
+    color: string;
+    count: number;
+}
+
 @Component({
   selector: 'epidemic-tracker',
   templateUrl: './EpidemicComponent.html',
@@ -23,12 +28,15 @@ export class EpidemicComponent {
     public stacks: IEpiMiniStack[] = [];
     public selectedCard: IPlayerCard;
     public modalVisible: boolean = false;
+    public colorSummary: IColorSummary[] = [];
+
     private playerDeck: IPlayerCard[];
 
     constructor(private _deckService: DeckService) {
         this._deckService.playerDeck.subscribe(deck => {
             // Make copy, until returned from service
             this.playerDeck = deck.slice();
+            this.colorSummary = [];
 
             this.deckLength = deck.length;
             let card = deck.find(card => card.name === EPIDEMIC_NAME);
@@ -41,6 +49,14 @@ export class EpidemicComponent {
                     count: i >= remainder ? minDiv + 1 : minDiv 
                 });
             }
+            this.playerDeck.forEach(card => {
+                let summary = this.colorSummary.find(sum => sum.color === card.color);
+                if (!summary) {
+                    summary = {color: card.color, count: 0};
+                    this.colorSummary.push(summary);
+                }
+                summary.count += card.count ? card.count : 1;
+            });
         });
     }
 

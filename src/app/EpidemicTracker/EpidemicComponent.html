@@ -17,6 +17,10 @@
     <div>
         Probability of epidemic in next 2 draws: {{epidemicProbability}}%
     </div>
+    <div 
+        *ngFor="let color of colorSummary">
+         {{color.color}}: {{color.count}}
+    </div>
     <div class="draw-button"
         (click)="modalVisible=true">
         Draw Player Card
